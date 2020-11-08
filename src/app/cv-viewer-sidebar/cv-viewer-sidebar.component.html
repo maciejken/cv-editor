@@ -1,0 +1,50 @@
+<aside>
+  <figure id="photo" class="photo">
+    <img *ngIf="(document$ | async) as doc" [src]="doc.contactDetails.photo" alt="face">
+  </figure>
+  <section class="contact">
+    <h2>CONTACT</h2>
+    <div *ngIf="(document$ | async) as doc" class="info">
+      <a href="tel: {{ doc.contactDetails.phone }}">
+        <i class="fa fa-phone fa-lg"></i>
+        <span>{{ doc.contactDetails.phone }}</span>
+      </a>
+      <a href="mailto:{{ doc.contactDetails.email }}">
+        <i class="fa fa-envelope fa-lg"></i>
+        <span>{{ doc.contactDetails.email }}</span>
+      </a>
+    </div>
+  </section>
+  <section class="social">
+    <h2>SOCIAL</h2>
+    <div *ngIf="(document$ | async) as doc" class="info">
+      <a href="http://{{ doc.contactDetails.github }}" target="_blank">
+        <i class="fa fa-github fa-lg"></i>
+        <span>
+          {{ doc.contactDetails.github }}
+        </span>
+      </a>
+      <a href="http://{{ doc.contactDetails.linkedin }}" target="_blank">
+        <i class="fa fa-linkedin fa-lg"></i>
+        <span>
+          {{ doc.contactDetails.linkedin }}
+        </span>
+      </a>
+    </div>
+  </section>
+  <section class="languages">
+    <h2>LANGUAGES</h2>
+    <div *ngIf="(document$ | async) as doc" class="info">
+      <figure *ngFor="let lang of doc.languages" class="lang">
+        <img [src]="lang.flag" [alt]="lang.name" class="flag" />
+        <figcaption>
+          {{ lang.name }}
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+  <section>
+    <h2>PROFILE</h2>
+    <div *ngIf="(document$ | async) as doc" class="info" [innerHtml]="doc.profileDescription"></div>
+  </section>
+</aside>
