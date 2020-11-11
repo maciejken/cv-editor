@@ -1,15 +1,20 @@
 <aside>
   <figure id="photo" class="photo">
-    <img *ngIf="(document$ | async) as doc" [src]="doc.contactDetails.photo" alt="face">
+    <img
+      *ngIf="(document$ | async) as doc"
+      [src]="doc.contactDetails.photo"
+      [title]="doc.contactDetails.name"
+      [alt]="doc.contactDetails.name"
+    >
   </figure>
   <section class="contact">
     <h2>CONTACT</h2>
     <div *ngIf="(document$ | async) as doc" class="info">
-      <a href="tel: {{ doc.contactDetails.phone }}">
+      <a href="tel: {{ doc.contactDetails.phone }}" title="Call me">
         <i class="fa fa-phone fa-lg"></i>
         <span>{{ doc.contactDetails.phone }}</span>
       </a>
-      <a href="mailto:{{ doc.contactDetails.email }}">
+      <a href="mailto:{{ doc.contactDetails.email }}" title="Send email">
         <i class="fa fa-envelope fa-lg"></i>
         <span>{{ doc.contactDetails.email }}</span>
       </a>
@@ -18,13 +23,13 @@
   <section class="social">
     <h2>SOCIAL</h2>
     <div *ngIf="(document$ | async) as doc" class="info">
-      <a href="http://{{ doc.contactDetails.github }}" target="_blank">
+      <a href="http://{{ doc.contactDetails.github }}" target="_blank" title="GitHub">
         <i class="fa fa-github fa-lg"></i>
         <span>
           {{ doc.contactDetails.github }}
         </span>
       </a>
-      <a href="http://{{ doc.contactDetails.linkedin }}" target="_blank">
+      <a href="http://{{ doc.contactDetails.linkedin }}" target="_blank" title="LinkedIn">
         <i class="fa fa-linkedin fa-lg"></i>
         <span>
           {{ doc.contactDetails.linkedin }}
@@ -36,7 +41,12 @@
     <h2>LANGUAGES</h2>
     <div *ngIf="(document$ | async) as doc" class="info">
       <figure *ngFor="let lang of doc.languages" class="lang">
-        <img [src]="lang.flag" [alt]="lang.name" class="flag" />
+        <img
+          [src]="lang.image"
+          [title]="lang.name"
+          [alt]="lang.name"
+          class="flag"
+        >
         <figcaption>
           {{ lang.name }}
         </figcaption>
@@ -45,6 +55,8 @@
   </section>
   <section>
     <h2>PROFILE</h2>
-    <div *ngIf="(document$ | async) as doc" class="info" [innerHtml]="doc.profileDescription"></div>
+    <div *ngIf="(document$ | async) as doc" class="info">
+      <p *ngFor="let html of doc.profileDescription" [innerHtml]="html"></p>
+    </div>
   </section>
 </aside>

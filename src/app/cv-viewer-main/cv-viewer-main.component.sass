@@ -1,0 +1,191 @@
+.viewer
+    display: flex
+    width: 100vw
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+
+header
+    box-sizing: border-box
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    width: 100%
+    background-color: #8fb4ef
+    padding: 1rem
+    line-height: 6em
+
+    h1
+        font-family: open_sansregular, Arial, sans-serif
+        font-size: 3rem
+
+    h2
+        font-size: 1.75rem
+
+main
+    box-sizing: border-box
+    display: flex
+    flex-direction: column
+    align-items: center
+    background-color: #fff
+
+header
+    display: none
+
+section
+    background-color: #fff
+    font-size: 1.25rem
+    padding: 1rem
+    margin: 0.5rem 0
+
+    h2
+        font-size: 2rem
+        margin: 1rem
+
+.skills
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+
+    figure
+        margin: 0.75rem
+        position: relative
+        max-width: none
+
+.education
+    display: flex
+    flex-direction: column
+
+    figure
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        max-width: none
+        width: 100%
+        margin: 0.5rem 0
+
+    img
+        margin-right: 2rem
+        width: 100%
+
+    figcaption
+        font-size: 1rem
+        margin: 1rem 0
+
+    h3
+        font-family: 'open_sanssemibold', Arial, sans-serif
+
+.experience
+    @extend .education
+
+    img
+        width: 100%
+
+footer
+    font-size: 0.9rem
+    padding: 1rem
+
+    hr
+        margin-top: 1rem
+
+@media screen and (min-width: 800px)
+
+    .circle-bullet
+        list-style-type: circle
+        padding: 0 0 0 1.55em
+
+        .item
+            margin: 0.5em 0
+
+    .past
+        margin-top: 20px
+
+    .footer
+        margin-top: 1em
+
+    main
+        display: flex
+        flex-direction: column
+        align-items: center
+        width: 55rem
+        background-color: #fff
+
+    header.desktop-header
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: space-between
+        padding: 2rem
+        width: 55rem
+        background-color: #8fb4ef
+
+        h1
+            font-family: open_sansregular, Arial, sans-serif
+            font-size: 5rem
+
+        h2
+            font-size: 3rem
+
+        h1, h2
+            width: 40rem
+            text-align: center
+
+    section
+        background-color: #fff
+        font-size: 1.5rem
+        padding: 1rem
+        width: 50rem
+        margin: 1rem
+
+        h2
+            font-size: 2rem
+            margin: 1rem 0 1rem
+
+    .skills
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+
+        figure
+            margin: 1rem
+            width: 3.25em
+            height: 3.25em
+
+        img
+            max-width: 100%
+            margin-right: 2rem
+            width: 16rem
+
+        figcaption
+            margin: 0 0 0 2rem
+            font-size: 1.25rem
+
+        h3
+            font-family: 'open_sanssemibold', Arial, sans-serif
+
+            display: flex
+
+    .education, .experience
+        figure
+            display: flex
+            flex-direction: row
+            align-items: flex-start
+            margin: 1rem 0
+
+            img
+                max-width: 100%
+                width: 15em
+
+            figcaption
+                font-size: .9em
+                line-height: 1.2em
+
+            .history-item:not(:last-child)
+                margin: 0 0 1em 0
+
+    footer
+        font-size: 0.9rem
+
+        hr
+            margin-top: 0.25rem

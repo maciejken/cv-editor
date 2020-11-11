@@ -7,8 +7,8 @@ import { AppComponent } from './app.component';
 import { CvViewerComponent } from './cv-viewer/cv-viewer.component';
 import { CvEditorComponent } from './cv-editor/cv-editor.component';
 import { CvViewerSidebarComponent } from './cv-viewer-sidebar/cv-viewer-sidebar.component';
-import { SafePipe } from './safe.pipe';
 import { CvViewerMainComponent } from './cv-viewer-main/cv-viewer-main.component';
+import { SafePipe } from './safe.pipe';
 
 @NgModule({
   declarations: [

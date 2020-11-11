@@ -1,1 +1,75 @@
-<p>cv-viewer-main works!</p>
+<header *ngIf="(document$ | async ) as doc" class="desktop-header">
+  <h1>{{ doc.contactDetails.name }}</h1>
+  <h2>{{ doc.contactDetails.jobTitle }}</h2>
+</header>
+
+<main>
+  <section class="objective">
+    <h2><i class="fa fa-bullseye"></i> OBJECTIVE</h2>
+    <ul *ngIf="(document$ | async ) as doc" class="circle-bullet">
+      <li *ngFor="let obj of doc.objectives" class="item">{{ obj }}</li>
+    </ul>
+  </section>
+  <section>
+    <h2><i class="fa fa-cogs"></i> TECH SKILLS</h2>
+    <div *ngIf="(document$ | async ) as doc" class="skills">
+      <figure *ngFor="let skill of doc.skills">
+        <img [src]="skill.image" [title]="skill.name" [alt]="skill.name">
+      </figure>
+    </div>
+  </section>
+  <section *ngIf="(document$ | async) as doc">
+    <h2><i class="fa fa-briefcase"></i> PROFESSIONAL EXPERIENCE</h2>
+    <div class="experience">
+      <figure *ngFor="let exp of doc.experience">
+        <img
+          [src]="exp.organisation.image"
+          [title]="exp.organisation.name"
+          [alt]="exp.organisation.name"
+        >
+        <figcaption>
+          <div *ngFor="let hi of exp.history" class="history-item">
+            <p>{{ hi.startDate }} - {{ hi.endDate }}</p>
+            <h3>{{ hi.title }}</h3>
+            <p>
+              <em>{{ hi.description }}</em>
+            </p>
+            <p>
+              <span class="regular">technologies: </span>
+              <em>{{ hi.technologies }}</em>
+            </p>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+  <section *ngIf="(document$ | async) as doc">
+    <h2><i class="fa fa-graduation-cap"></i> COURSES &amp;&nbsp;EDUCATION</h2>
+    <div class="education">
+      <figure *ngFor="let edu of doc.education">
+          <img
+            [src]="edu.organisation.image"
+            [title]="edu.organisation.name"
+            [alt]="edu.organisation.name"
+          >
+          <figcaption>
+            <div *ngFor="let hi of edu.history" class="history-item">
+              <p>{{ hi.startDate }} - {{ hi.endDate }}</p>
+              <h3>{{ hi.title }}</h3>
+              <p>
+                <em>{{ hi.description }}</em>
+              </p>
+              <p>
+                <span class="regular">technologies: </span>
+                <em>{{ hi.technologies }}</em>
+              </p>
+            </div>
+          </figcaption>
+      </figure>
+    </div>
+  </section>
+  <footer *ngIf="(document$ | async ) as doc" class="footer">
+      <hr>
+      <p>{{ doc.footer.join(' ') }}</p>
+  </footer>
+</main>

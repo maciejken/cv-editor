@@ -1,5 +1,6 @@
-export interface ContactDetails {
+interface ContactDetails {
   name: string;
+  jobTitle: string;
   email: string;
   phone: string;
   github?: string;
@@ -9,13 +10,31 @@ export interface ContactDetails {
   photo: string;
 }
 
-export interface Language {
+interface NamedImage {
   name: string;
-  flag: string;
+  image: string;
+}
+
+interface HistoryItem {
+  startDate: string;
+  endDate: string;
+  title: string;
+  description: string;
+  technologies: string;
+}
+
+interface CvItem {
+  organisation: NamedImage;
+  history: HistoryItem[];
 }
 
 export interface CvDocument {
   contactDetails: ContactDetails;
-  languages: Language[];
-  profileDescription: string;
+  languages: NamedImage[];
+  objectives?: string[];
+  skills: NamedImage[];
+  experience: CvItem[];
+  education: CvItem[];
+  profileDescription: string[];
+  footer?: string;
 }

@@ -15,8 +15,7 @@ html
  */
 
 body
-    display: flex
-    justify-content: center
+    background-color: lighten(blue, 45%)
     font-family: open_sanslight, Arial, sans-serif
 
 .container
@@ -26,6 +25,15 @@ body
     flex-wrap: wrap
 
 em
+    font-family: open_sanslight_italic
+
+strong
+    font-family: open_sansbold
+
+.regular
+    font-family: open_sansregular
+
+.italic
     font-family: open_sansitalic
 
 @media print
@@ -47,4 +55,3 @@ em
         flex-direction: row
         flex-wrap: nowrap
         width: 80rem
-        height: 114rem
