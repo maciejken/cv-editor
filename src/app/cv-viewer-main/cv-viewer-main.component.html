@@ -3,73 +3,69 @@
   <h2>{{ doc.contactDetails.jobTitle }}</h2>
 </header>
 
-<main>
+<main *ngIf="(document$ | async) as doc">
   <section class="objective">
     <h2><i class="fa fa-bullseye"></i> OBJECTIVE</h2>
-    <ul *ngIf="(document$ | async ) as doc" class="circle-bullet">
+    <ul class="circle-bullet">
       <li *ngFor="let obj of doc.objectives" class="item">{{ obj }}</li>
     </ul>
   </section>
   <section>
     <h2><i class="fa fa-cogs"></i> TECH SKILLS</h2>
-    <div *ngIf="(document$ | async ) as doc" class="skills">
+    <div class="skills">
       <figure *ngFor="let skill of doc.skills">
-        <img [src]="skill.image" [title]="skill.name" [alt]="skill.name">
+        <img [src]="skill.logo" [title]="skill.name" [alt]="skill.name">
       </figure>
     </div>
   </section>
-  <section *ngIf="(document$ | async) as doc">
+  <section>
     <h2><i class="fa fa-briefcase"></i> PROFESSIONAL EXPERIENCE</h2>
     <div class="experience">
       <figure *ngFor="let exp of doc.experience">
         <img
-          [src]="exp.organisation.image"
+          [src]="exp.organisation.logo"
           [title]="exp.organisation.name"
           [alt]="exp.organisation.name"
         >
         <figcaption>
-          <div *ngFor="let hi of exp.history" class="history-item">
-            <p>{{ hi.startDate }} - {{ hi.endDate }}</p>
-            <h3>{{ hi.title }}</h3>
-            <p>
-              <em>{{ hi.description }}</em>
-            </p>
-            <p>
-              <span class="regular">technologies: </span>
-              <em>{{ hi.technologies }}</em>
-            </p>
-          </div>
+          <p>{{ exp.startDate }} - {{ exp.endDate }}</p>
+          <h3>{{ exp.title }}</h3>
+          <p>
+            <em>{{ exp.description }}</em>
+          </p>
+          <p>
+            <span class="regular">technologies: </span>
+            <em>{{ exp.technologies }}</em>
+          </p>
         </figcaption>
       </figure>
     </div>
   </section>
-  <section *ngIf="(document$ | async) as doc">
+  <section>
     <h2><i class="fa fa-graduation-cap"></i> COURSES &amp;&nbsp;EDUCATION</h2>
     <div class="education">
       <figure *ngFor="let edu of doc.education">
-          <img
-            [src]="edu.organisation.image"
-            [title]="edu.organisation.name"
-            [alt]="edu.organisation.name"
-          >
-          <figcaption>
-            <div *ngFor="let hi of edu.history" class="history-item">
-              <p>{{ hi.startDate }} - {{ hi.endDate }}</p>
-              <h3>{{ hi.title }}</h3>
-              <p>
-                <em>{{ hi.description }}</em>
-              </p>
-              <p>
-                <span class="regular">technologies: </span>
-                <em>{{ hi.technologies }}</em>
-              </p>
-            </div>
-          </figcaption>
+        <img
+          [src]="edu.organisation.logo"
+          [title]="edu.organisation.name"
+          [alt]="edu.organisation.name"
+        >
+        <figcaption>
+          <p>{{ edu.startDate }} - {{ edu.endDate }}</p>
+          <h3>{{ edu.title }}</h3>
+          <p>
+            <em>{{ edu.description }}</em>
+          </p>
+          <p>
+            <span class="regular">technologies: </span>
+            <em>{{ edu.technologies }}</em>
+          </p>
+        </figcaption>
       </figure>
     </div>
   </section>
-  <footer *ngIf="(document$ | async ) as doc" class="footer">
+  <footer class="footer">
       <hr>
-      <p>{{ doc.footer.join(' ') }}</p>
+      <p>{{ doc.footer }}</p>
   </footer>
 </main>

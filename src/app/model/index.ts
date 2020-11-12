@@ -10,12 +10,14 @@ interface ContactDetails {
   photo: string;
 }
 
-interface NamedImage {
+interface Logo {
   name: string;
-  image: string;
+  logo: string;
+  link?: string;
 }
 
-interface HistoryItem {
+interface History {
+  organisation: Logo,
   startDate: string;
   endDate: string;
   title: string;
@@ -23,18 +25,13 @@ interface HistoryItem {
   technologies: string;
 }
 
-interface CvItem {
-  organisation: NamedImage;
-  history: HistoryItem[];
-}
-
 export interface CvDocument {
   contactDetails: ContactDetails;
-  languages: NamedImage[];
+  languages: Logo[];
   objectives?: string[];
-  skills: NamedImage[];
-  experience: CvItem[];
-  education: CvItem[];
+  skills: Logo[];
+  experience: History[];
+  education: History[];
   profileDescription: string[];
   footer?: string;
 }

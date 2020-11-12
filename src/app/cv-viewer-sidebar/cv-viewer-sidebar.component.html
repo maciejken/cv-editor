@@ -1,7 +1,6 @@
-<aside>
+<aside *ngIf="(document$ | async) as doc">
   <figure id="photo" class="photo">
     <img
-      *ngIf="(document$ | async) as doc"
       [src]="doc.contactDetails.photo"
       [title]="doc.contactDetails.name"
       [alt]="doc.contactDetails.name"
@@ -9,7 +8,7 @@
   </figure>
   <section class="contact">
     <h2>CONTACT</h2>
-    <div *ngIf="(document$ | async) as doc" class="info">
+    <div class="info">
       <a href="tel: {{ doc.contactDetails.phone }}" title="Call me">
         <i class="fa fa-phone fa-lg"></i>
         <span>{{ doc.contactDetails.phone }}</span>
@@ -22,7 +21,7 @@
   </section>
   <section class="social">
     <h2>SOCIAL</h2>
-    <div *ngIf="(document$ | async) as doc" class="info">
+    <div class="info">
       <a href="http://{{ doc.contactDetails.github }}" target="_blank" title="GitHub">
         <i class="fa fa-github fa-lg"></i>
         <span>
@@ -39,10 +38,10 @@
   </section>
   <section class="languages">
     <h2>LANGUAGES</h2>
-    <div *ngIf="(document$ | async) as doc" class="info">
+    <div class="info">
       <figure *ngFor="let lang of doc.languages" class="lang">
         <img
-          [src]="lang.image"
+          [src]="lang.logo"
           [title]="lang.name"
           [alt]="lang.name"
           class="flag"
@@ -55,7 +54,7 @@
   </section>
   <section>
     <h2>PROFILE</h2>
-    <div *ngIf="(document$ | async) as doc" class="info">
+    <div class="info">
       <p *ngFor="let html of doc.profileDescription" [innerHtml]="html"></p>
     </div>
   </section>
